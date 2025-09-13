@@ -18,5 +18,18 @@ void test_validate_my_username()
      * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt 
      * config file and my_username() functions are setup properly
      */
-    TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+
+    //Get username from hardcoded Function 
+    const char* my_Username = my_username();
+
+    //Get username from conf/username.txt (allocated using malloc)
+    char* conf_Username = malloc_username_from_conf_file();
+
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(my_Username, conf_Username, "Username Mismatch");
+
+
+    // TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+
+    // Freeing Memory 
+    free(conf_Username);
 }
